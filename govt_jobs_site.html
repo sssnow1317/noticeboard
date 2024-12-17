@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Job Listings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Government Jobs Openings</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#latest">Latest Jobs</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h2>Find the Latest Government Jobs Here</h2>
+            <p>Stay updated with the newest job openings in the public sector.</p>
+        </div>
+    </section>
+
+    <!-- Latest Jobs Section -->
+    <section id="latest">
+        <div class="container">
+            <h2>Latest Job Openings</h2>
+            <div id="job-listings">
+                <!-- Job Entries from Netlify CMS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Government Jobs Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Netlify CMS Integration -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+<!-- styles.css -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
+    header {
+        background: #333;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+    }
+    header nav ul {
+        list-style: none;
+        padding: 0;
+    }
+    header nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
+    header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    #hero {
+        background: #f4f4f4;
+        padding: 2rem 0;
+        text-align: center;
+    }
+    #latest {
+        padding: 2rem;
+    }
+    .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+    footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 1rem;
+    }
+</style>
+
+<!-- config.yml -->
+<script>
+/* Add this file as config.yml */
+/*
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "uploads" # Folder where images are stored
+collections:
+  - name: "jobs"
+    label: "Job Listings"
+    folder: "_jobs"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Link", name: "link", widget: "string" }
+*/
+</script>
